@@ -4,12 +4,14 @@ class Car
     private $make_model;
     private $price;
     private $miles;
+    private $image;
 
-    function __construct($make, $price=null, $miles)
+    function __construct($make, $price=null, $miles, $image)
     {
         $this->make_model = $make;
         $this->price = $price;
         $this->miles = $miles;
+        $this->image = $image;
 
         if (is_null($price)) {
             $this->price = 5000;
@@ -49,12 +51,21 @@ class Car
         return $this->miles;
     }
 
+    function setImage($new_image)
+    {
+        $this->image = $new_image;
+    }
+
+    function getImage()
+    {
+        return $this->image;
+    }
 }
 
-$first_car = new Car("Honda CRV", 12000, "150,000");
-$second_car = new Car("Tesla S", 53000, "20,000");
-$third_car = new Car("Deron's Highschool Volvo", 5000, "170,000");
-$fourth_car = new Car("Jeep Cherokee", null, "68,000");
+$first_car = new Car("Honda CRV", 12000, "150,000", "img/jetta.jpg");
+$second_car = new Car("Tesla S", 53000, "20,000", "img/tesla.jpg");
+$third_car = new Car("Deron's Highschool Volvo", 5000, "170,000", "img/volvo.jpg");
+$fourth_car = new Car("Jeep Cherokee", null, "68,000", "img/cherokee.jpg");
 
 $first_car->setMake("VW Jetta");
 $second_car->setMiles("35,000");
@@ -77,7 +88,9 @@ $cars_matching_search = array($first_car, $second_car, $third_car, $fourth_car);
             $car_make = $car->getMake();
             $car_price = $car->getPrice();
             $car_miles = $car->getMiles();
+            $car_image = $car->getImage();
             echo "<li> $car_make </li>";
+            echo "<img src=$car_image>";
             echo "<ul>";
                 echo "<li> $$car_price</li>";
                 echo "<li> Miles: $car_miles </li>";
