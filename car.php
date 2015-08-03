@@ -79,7 +79,7 @@ foreach ($cars as $car) {
     $car_miles = $car->getMiles();
     if ($car_price < $_GET["price"] && $car_miles < $_GET["mileage"]) {
         array_push($cars_matching_search, $car);
-      }
+    }
 }
 
 ?>
@@ -93,9 +93,9 @@ foreach ($cars as $car) {
   <body>
     <div class="container">
       <?php
-          if (empty($cars_matching_serach)) {
-            echo "<h1>Uh. Oh! No cars available for you.</h1>";
-          } else {
+          if (empty($cars_matching_search)) {
+              echo "<h1>Uh. Oh! No cars available for you.</h1>";
+            } else {
               foreach ($cars_matching_search as $car) {
                 $car_make = $car->getMake();
                 $car_price = $car->getPrice();
