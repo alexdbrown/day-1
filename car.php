@@ -96,10 +96,12 @@ foreach ($cars as $car) {
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="car.css" type="text/css" media="all">
     <title>Cars!</title>
   </head>
   <body>
     <div class="container">
+      <h1>Available For Purchase</h1>
       <?php
           if (empty($cars_matching_search)) {
               echo "<h1>Uh. Oh! No cars available for you.</h1>";
@@ -110,7 +112,7 @@ foreach ($cars as $car) {
                 $car_miles = $car->getMiles();
                 $car_image = $car->getImage();
 
-                echo "<li> $car_make </li>";
+                echo "<h3> $car_make </h3>";
                 echo "<img src=$car_image>";
                 echo "<ul>";
                     echo "<li> $$car_price</li>";
