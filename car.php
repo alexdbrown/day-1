@@ -62,22 +62,24 @@ class Car
     }
 }
 
-$first_car = new Car("Honda CRV", 12000, "150,000", "img/jetta.jpg");
-$second_car = new Car("Tesla S", 53000, "20,000", "img/tesla.jpg");
-$third_car = new Car("Deron's Highschool Volvo", 5000, "170,000", "img/volvo.jpg");
-$fourth_car = new Car("Jeep Cherokee", null, "68,000", "img/cherokee.jpg");
+$first_car = new Car("Honda CRV", 12000, 150000, "img/jetta.jpg");
+$second_car = new Car("Tesla S", 53000, 20000, "img/tesla.jpg");
+$third_car = new Car("Deron's Highschool Volvo", 5000, 170000, "img/volvo.jpg");
+$fourth_car = new Car("Jeep Cherokee", null, 68000, "img/cherokee.jpg");
 
 $first_car->setMake("VW Jetta");
-$second_car->setMiles("35,000");
-$third_car->setPrice("5800");
+$second_car->setMiles(35000);
+$third_car->setPrice(5800);
 
 $cars = array($first_car, $second_car, $third_car, $fourth_car);
 
 $cars_matching_search = array();
 foreach ($cars as $car) {
     $car_price = $car->getPrice();
-    if ($car_price < $_GET["price"])
+    $car_miles = $car->getMiles();
+    if ($car_price < $_GET["price"] && $car_miles < $_GET["mileage"]) {
         array_push($cars_matching_search, $car);
+      }
 }
 
 ?>
