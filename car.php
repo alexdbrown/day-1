@@ -71,7 +71,14 @@ $first_car->setMake("VW Jetta");
 $second_car->setMiles("35,000");
 $third_car->setPrice("5800");
 
-$cars_matching_search = array($first_car, $second_car, $third_car, $fourth_car);
+$cars = array($first_car, $second_car, $third_car, $fourth_car);
+
+$cars_matching_search = array();
+foreach ($cars as $car) {
+    $car_price = $car->getPrice();
+    if ($car_price < $_GET["price"])
+        array_push($cars_matching_search, $car);
+}
 
 ?>
 
