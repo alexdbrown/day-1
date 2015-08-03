@@ -93,18 +93,24 @@ foreach ($cars as $car) {
   <body>
     <div class="container">
       <?php
-          foreach ($cars_matching_search as $car) {
-            $car_make = $car->getMake();
-            $car_price = $car->getPrice();
-            $car_miles = $car->getMiles();
-            $car_image = $car->getImage();
-            echo "<li> $car_make </li>";
-            echo "<img src=$car_image>";
-            echo "<ul>";
-                echo "<li> $$car_price</li>";
-                echo "<li> Miles: $car_miles </li>";
-            echo "</ul>";
+          if (empty($cars_matching_serach)) {
+            echo "<h1>Uh. Oh! No cars available for you.</h1>";
+          } else {
+              foreach ($cars_matching_search as $car) {
+                $car_make = $car->getMake();
+                $car_price = $car->getPrice();
+                $car_miles = $car->getMiles();
+                $car_image = $car->getImage();
+
+                echo "<li> $car_make </li>";
+                echo "<img src=$car_image>";
+                echo "<ul>";
+                    echo "<li> $$car_price</li>";
+                    echo "<li> Miles: $car_miles </li>";
+                echo "</ul>";
+              }
           }
+
       ?>
     </div>
   </body>
