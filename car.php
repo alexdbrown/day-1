@@ -77,7 +77,15 @@ $cars_matching_search = array();
 foreach ($cars as $car) {
     $car_price = $car->getPrice();
     $car_miles = $car->getMiles();
-    if ($car_price < $_GET["price"] && $car_miles < $_GET["mileage"]) {
+    if (empty($_GET["price"])) {
+        if ($car_miles < $_GET["mileage"]) {
+          array_push($cars_matching_search, $car);
+        }
+    } elseif (empty($_GET["mileage"])) {
+        if ($car_price < $_GET["price"]) {
+            array_push($cars_matching_search, $car);
+        }
+    } elseif ($car_price < $_GET["price"] && $car_miles < $_GET["mileage"]) {
         array_push($cars_matching_search, $car);
     }
 }
