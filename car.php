@@ -3,7 +3,7 @@ class Car
 {
     private $make_model;
     private $price;
-    public $miles;
+    private $miles;
 
     function __construct($make, $price, $miles)
     {
